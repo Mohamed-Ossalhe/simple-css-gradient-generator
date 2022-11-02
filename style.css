@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "AbeeZee";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100%;
+  width: 70%;
+  padding: 2rem 0;
+  margin: auto;
+}
+.container h2 {
+  background: linear-gradient(45deg, #F7B32D, #63AABC, #240041, #900048, #FF4057, #FF8260, #ED3833);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.container .container-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(45deg, #000, #fff);
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 10px rgba(130, 147, 183, 0.4);
+}
+.container .container-wrapper input {
+  height: 50px;
+  width: 100px;
+}
+.container .container-wrapper #angel {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  outline: none;
+}
+.container .color-values {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.container .color-values div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.container .color-values div .color {
+  cursor: pointer;
+}
+.container .code {
+  text-align: center;
+}
+.container .code h3 {
+  margin: 2rem 0 1rem;
+  font-size: 2rem;
+}
+.container .code h3 span {
+  color: #240041;
+  font-size: 0.75rem;
+}
+.container .code .css-code {
+  padding: 1rem 1.5rem;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border: 2px solid #900048;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: rgba(1, 220, 255, 0.6117647059);
+  border: 2px solid #240041;
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px rgba(121, 228, 245, 0.3411764706);
+  color: #240041;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.modal.active {
+  top: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 2rem;
+    width: 95%;
+  }
+  .container h2 {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  .container .container-wrapper {
+    gap: 1rem;
+  }
+  .container .container-wrapper input {
+    height: 40px;
+    width: 60px;
+  }
+  .container .container-wrapper #angel {
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  .container .color-values div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .container .color-values div .color {
+    cursor: pointer;
+  }
+  .container .code {
+    text-align: center;
+  }
+  .container .code h3 {
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+  }
+  .container .code h3 span {
+    color: #240041;
+    font-size: 0.75rem;
+  }
+  .container .code .css-code {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .modal {
+    top: -15%;
+    padding: 1rem;
+  }
+  .modal.active {
+    top: 15%;
+  }
+}/*# sourceMappingURL=style.css.map */
