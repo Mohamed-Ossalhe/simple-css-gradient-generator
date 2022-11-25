@@ -7,6 +7,7 @@
 body {
   height: 100vh;
   font-family: "AbeeZee";
+  overflow-x: hidden;
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  position: relative;
   height: 100%;
   width: 70%;
   padding: 2rem 0;
@@ -86,6 +88,44 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
 }
+.container .open-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  color: #240041;
+}
+.container .close-icon, .container .open-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+.container .close-icon i, .container .open-icon i {
+  font-size: 3rem;
+  cursor: pointer;
+}
+.container .history {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #240041;
+  color: #fff;
+  padding: 1rem;
+  height: 100vh;
+  transform: translateX(100%);
+  transition: 0.5s;
+}
+.container .history .history-wrapper h3 {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+.container .history .history-wrapper h3:not(:last-of-type) {
+  border-bottom: 3px solid #fff;
+}
+.container .active-menu {
+  transform: translateX(0%);
+}
 
 .modal {
   display: flex;
@@ -96,11 +136,11 @@ body {
   left: 50%;
   gap: 1.5rem;
   padding: 1rem 2rem;
-  background-color: rgba(1, 220, 255, 0.6117647059);
+  background-color: #240041;
   border: 2px solid #240041;
   border-radius: 5px;
-  box-shadow: 0px 10px 30px rgba(121, 228, 245, 0.3411764706);
-  color: #240041;
+  filter: drop-shadow(0px 4px 30px rgba(0, 4, 153, 0.3));
+  color: #fff;
   transform: translateX(-50%);
   transition: 0.5s;
 }
@@ -151,6 +191,9 @@ body {
   .container .code .css-code {
     padding: 0.5rem;
     font-size: 1.1rem;
+  }
+  .container .open-icon {
+    top: 0rem;
   }
   .modal {
     top: -15%;

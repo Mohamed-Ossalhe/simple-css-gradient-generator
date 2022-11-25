@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     font-family: "AbeeZee";
+    overflow-x: hidden;
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    position: relative;
     height: 100%;
     width: 70%;
     padding: 2rem 0;
@@ -85,6 +87,46 @@ body {
             cursor: pointer;
         }
     }
+    .open-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 0;
+        color: #240041;
+    }
+    .close-icon, .open-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        i {
+            font-size: 3rem;
+            cursor: pointer;
+        }
+    }
+    .history {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #240041;
+        color: #fff;
+        padding: 1rem;
+        height: 100vh;
+        transform: translateX(100%);
+        transition: .5s;
+        .history-wrapper {
+            h3 {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                &:not(:last-of-type) {
+                    border-bottom: 3px solid #fff;
+                }
+            }
+        }
+    }
+    .active-menu {
+        transform: translateX(0%);
+    }
 }
 // modal
 .modal {
@@ -96,11 +138,11 @@ body {
     left: 50%;
     gap: 1.5rem;
     padding: 1rem 2rem;
-    background-color: #01dcff9c;
+    background-color: #240041;
     border: 2px solid #240041;
     border-radius: 5px;
-    box-shadow: 0px 10px 30px #79e4f557;
-    color: #240041;
+    filter: drop-shadow(0px 4px 30px rgba(0 4 153 / 0.30));
+    color: #fff;
     transform: translateX(-50%);
     transition: .5s;
 }
@@ -151,6 +193,9 @@ body {
                 padding: 0.5rem;
                 font-size: 1.10rem;
             }
+        }
+        .open-icon {
+            top: 0rem;
         }
     }
     // modal
