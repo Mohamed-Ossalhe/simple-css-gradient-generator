@@ -116,11 +116,11 @@ body {
   transform: translateX(100%);
   transition: 0.5s;
 }
-.container .history .history-wrapper h3 {
+.container .history .history-wrapper .history-child h3 {
   font-size: 1.2rem;
   padding: 1rem 0;
 }
-.container .history .history-wrapper h3:not(:last-of-type) {
+.container .history .history-wrapper .history-child:not(:last-of-type) {
   border-bottom: 3px solid #fff;
 }
 .container .active-menu {

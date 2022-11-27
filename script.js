@@ -1,3 +1,5 @@
+let historyDate = new Date;
+
 const clrElements = document.querySelectorAll("input");
 const containerWrapper = document.querySelector(".container-wrapper");
 const color1p = document.querySelector(".color-1");
@@ -10,6 +12,7 @@ const modal = document.querySelector(".modal");
 let openHistoryBtn = document.querySelector(".open-icon");
 let closeHistoryBtn = document.querySelector(".close-icon");
 let historyMenu = document.querySelector(".history");
+let historyCode = historyMenu.lastElementChild;
 const gradientHistory = [];
 
 
@@ -45,7 +48,9 @@ function copyColorAttribute(e) {
     let hex = e.target;
     let hexValue = hex.innerText;
     navigator.clipboard.writeText(hexValue);
-    addGradientToLocalStorage(hexValue);
+    if(historyCode.childElementCount < 8) {
+        addGradientToLocalStorage(hexValue);
+    }
     if(modal.classList.contains("active")) {
         modal.classList.remove("active");
     }else {
@@ -69,20 +74,38 @@ openHistoryBtn.addEventListener("click", openHistoryMenu);
 closeHistoryBtn.addEventListener("click", closeHistoryMenu);
 
 function addGradientToLocalStorage(value) {
-    if(localStorage.getItem('history') == null) {
+    if(localStorage.getItem('history') == null && localStorage.getItem('time') == null) {
         localStorage.setItem('history', '[]');
+        localStorage.setItem('time', '[]');
     }
     let oldHistory = JSON.parse(localStorage.getItem('history'));
     oldHistory.push(value);
+    let oldHistoryTime = JSON.parse(localStorage.getItem('time'));
+    let currentTime = `${historyDate.getHours()}:${historyDate.getMinutes() < 10 ? '0' + historyDate.getMinutes() : historyDate.getMinutes()}`;
+    oldHistoryTime.push(currentTime);
     localStorage.setItem('history', JSON.stringify(oldHistory));
+    localStorage.setItem('time', JSON.stringify(oldHistoryTime));
 }
 
 function displayHistory() {
-    if(localStorage.getItem('history') != null) {
-        let historyCode = historyMenu.lastElementChild;
+    if(localStorage.getItem('history') != null && localStorage.getItem('time') != null) {
+        let historyTime = JSON.parse(localStorage.getItem('time'));
         let historyData = JSON.parse(localStorage.getItem('history'));
+        let time = [];
+        let childTime;
+        for(let i = 0; i < historyTime.length; i++) {
+            time.push(historyTime[i]);
+        }
+        for(let i = 0; i < time.length; i++) {
+            childTime = time[i].toString();
+        }
         for(let i = 0; i < historyData.length; i++) {
-            historyCode.innerHTML += `<h3>${historyData[i]}</h3>`;
+            historyCode.innerHTML += `
+            <div class="history-child">
+                <h4>${childTime}</h4>
+                <h3>${historyData[i]}</h3>
+            </div>`;
+            console.log(time);
         }
     }
 }
