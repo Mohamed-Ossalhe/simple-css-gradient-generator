@@ -48,8 +48,12 @@ function copyColorAttribute(e) {
     let hex = e.target;
     let hexValue = hex.innerText;
     navigator.clipboard.writeText(hexValue);
+    //! uncompleted section need fixing
     if(historyCode.childElementCount < 8) {
         addGradientToLocalStorage(hexValue);
+    }else {
+        alert("history limit 8, We will fix it soon! ;)");
+        location.reload();
     }
     if(modal.classList.contains("active")) {
         modal.classList.remove("active");
@@ -92,20 +96,23 @@ function displayHistory() {
         let historyTime = JSON.parse(localStorage.getItem('time'));
         let historyData = JSON.parse(localStorage.getItem('history'));
         let time = [];
-        let childTime;
-        for(let i = 0; i < historyTime.length; i++) {
-            time.push(historyTime[i]);
-        }
-        for(let i = 0; i < time.length; i++) {
-            childTime = time[i].toString();
-        }
+        let data = [];
+        let childTime = [];
         for(let i = 0; i < historyData.length; i++) {
-            historyCode.innerHTML += `
-            <div class="history-child">
-                <h4>${childTime}</h4>
-                <h3>${historyData[i]}</h3>
-            </div>`;
-            console.log(time);
+            time.push(historyTime[i]);
+            data.push(historyData[i]);
+            let item = {
+                'code': data[i],
+                'time': time[i]
+            };
+            childTime.push(item);
         }
+        childTime.forEach((item)=>{
+                historyCode.innerHTML += `
+                <div class="history-child">
+                    <h4>${item.time}</h4>
+                    <h3>${item.code}</h3>
+                </div>`;
+        })
     }
 }

@@ -115,7 +115,11 @@ body {
         transform: translateX(100%);
         transition: .5s;
         .history-wrapper {
+            height: 100%;
+            padding: 1rem 1.5rem;
+            overflow-y: scroll;
             .history-child {
+                padding: 1rem 0;
                 h3 {
                     font-size: 1.2rem;
                     padding: 1rem 0;

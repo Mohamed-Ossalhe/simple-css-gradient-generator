@@ -116,6 +116,14 @@ body {
   transform: translateX(100%);
   transition: 0.5s;
 }
+.container .history .history-wrapper {
+  height: 100%;
+  padding: 1rem 1.5rem;
+  overflow-y: scroll;
+}
+.container .history .history-wrapper .history-child {
+  padding: 1rem 0;
+}
 .container .history .history-wrapper .history-child h3 {
   font-size: 1.2rem;
   padding: 1rem 0;
