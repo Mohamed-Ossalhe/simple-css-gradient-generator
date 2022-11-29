@@ -15,6 +15,8 @@ let historyMenu = document.querySelector(".history");
 let historyCode = historyMenu.lastElementChild;
 const gradientHistory = [];
 
+let weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+let yearMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 displayHistory();
 let firstClr = localStorage.getItem("color1");
@@ -85,7 +87,7 @@ function addGradientToLocalStorage(value) {
     let oldHistory = JSON.parse(localStorage.getItem('history'));
     oldHistory.push(value);
     let oldHistoryTime = JSON.parse(localStorage.getItem('time'));
-    let currentTime = `${historyDate.getHours()}:${historyDate.getMinutes() < 10 ? '0' + historyDate.getMinutes() : historyDate.getMinutes()}`;
+    let currentTime = `${weekDays[historyDate.getDay()]}, ${yearMonths[historyDate.getMonth()]} - ${historyDate.getDate()} - ${historyDate.getFullYear()} / ${historyDate.getHours()}:${historyDate.getMinutes() < 10 ? '0' + historyDate.getMinutes() : historyDate.getMinutes()}`;
     oldHistoryTime.push(currentTime);
     localStorage.setItem('history', JSON.stringify(oldHistory));
     localStorage.setItem('time', JSON.stringify(oldHistoryTime));
