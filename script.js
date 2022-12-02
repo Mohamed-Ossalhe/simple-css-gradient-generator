@@ -120,3 +120,8 @@ function displayHistory() {
         })
     }
 }
+
+function removeItem(item) {
+    localStorage.removeItem(item);
+    item.parentElement.remove();
+}
