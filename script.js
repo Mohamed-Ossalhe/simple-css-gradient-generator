@@ -111,17 +111,12 @@ function displayHistory() {
         }
         childTime.forEach((item)=>{
                 historyCode.innerHTML += `
-                <div class="history-child">
-                    <h4>${item.time}</h4>
-                    <h3>${item.code}</h3>
-                    <button class="remove">remove</button>
-                </div>`;
+                    <div class="history-child">
+                        <h4>${item.time}</h4>
+                        <h3>${item.code}</h3>
+                        <button class="remove">remove</button>
+                    </div>`;
                 // ! Add Remove element feature
         })
     }
-}
-
-function removeItem(item) {
-    localStorage.removeItem(item);
-    item.parentElement.remove();
 }
